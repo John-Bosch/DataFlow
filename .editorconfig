@@ -1,0 +1,351 @@
+["*"]
+end_of_line = crlf
+
+
+[*.{config,csproj,xml}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[*.cs]
+
+csharp_using_directive_placement = inside_namespace:warning
+csharp_style_namespace_declarations = file_scoped:warning # IDE0160: Convert to file-scoped namespace
+
+dotnet_analyzer_diagnostic.severity = warning # Sets all default enabled rules to warning - forces default error rules, etc to warning - doesn't affect rules not enabled by default
+
+#### DESIGN RULES ####
+dotnet_diagnostic.CA1001.severity = warning  # CA1000: Do not declare static members on generic types
+dotnet_diagnostic.CA1003.severity = warning  # CA1003: Use generic event handler instances
+dotnet_diagnostic.CA1005.severity = warning  # CA1005: Avoid more than 2 parameters on generic types - override only if design absolutely requires more than two type params
+dotnet_diagnostic.CA1008.severity = warning  # CA1008: enums should have zero values
+dotnet_diagnostic.CA1012.severity = warning  # CA1012: Abstract types should not have public constructors
+dotnet_diagnostic.CA1016.severity = warning  # CA1016: Mark assemblies with AssemblyVersionAttribute
+dotnet_diagnostic.CA1024.severity = warning  # CA1024: Use properties when appropriate
+dotnet_diagnostic.CA1032.severity = warning  # CA1032: Implement standard exception constructors
+dotnet_diagnostic.CA1034.severity = warning  # CA1034: Nested type should not be visible
+dotnet_diagnostic.CA1044.severity = warning  # CA1044: Properties should not be write only
+dotnet_diagnostic.CA1060.severity = warning  # CA1060: Move pinvokes to native methods class
+dotnet_diagnostic.CA1062.severity = none     # CA1062: Validate arguments of public methods (Justification: Turned off due to legacy code not doing so consistently.)
+dotnet_diagnostic.CA1061.severity = warning
+dotnet_diagnostic.CA1063.severity = warning  # CA1063: Implement IDisposable correctly
+dotnet_diagnostic.CA1065.severity = warning  # CA1065: Do not raise exceptions in unexpected locations
+
+dotnet_diagnostic.CA1303.severity = none     # CA1303: Ignore strings that should in a resource table.
+dotnet_diagnostic.CA1305.severity = none     # CA1305: Specify IFormatProvider.
+dotnet_diagnostic.CA1400.severity = warning
+
+#### NAMING RULES ####
+dotnet_diagnostic.CA1707.severity = warning  # CA1707: Identifiers should not contain underscores
+dotnet_diagnostic.CA1708.severity = warning  # CA1708: Identifiers should differ by more than case
+dotnet_diagnostic.CA1721.severity = warning  # CA1721: Property names should not match get methods
+dotnet_diagnostic.CA1725.severity = warning  # CA1725: Parameter names should match base declaration
+
+#### PERFORMANCE RULES ####
+dotnet_diagnostic.CA1812.severity = warning  # CA1812: Avoid uninstantiated internal classes
+dotnet_diagnostic.CA1813.severity = warning  # CA1813: Avoid unsealed attributes
+dotnet_diagnostic.CA1820.severity = warning  # CA1820: Test for empty strings using string length or IsNullOrEmpty
+dotnet_diagnostic.CA1821.severity = warning  # CA1821: Remove empty finalizers.
+dotnet_diagnostic.CA1822.severity = none     # CA1822: Mark members as static. (Justification: Do not add static unless it is by design - Coding standard)
+dotnet_diagnostic.CA1823.severity = warning  # CA1823: Avoid unused private fields
+
+#### RELIABILTIY RULES ####
+dotnet_diagnostic.CA2000.severity = warning  # CA2000: Dispose objects before losing scope
+dotnet_diagnostic.CA2002.severity = warning  # CA2002: Do not lock on objects with weak identity
+dotnet_diagnostic.CA2007.severity = none     # CA2007: Consider calling ConfigureAwait() on awaited task. (Enabled in class library projects only)
+                                             # NOTE: Inclusion of this rule by project output kind is also supported by this rule's settings. We're not
+                                             # using this setting as we already have a separate global ruleset file for library projects that we inject.
+                                             # See: https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2007#output-kind
+
+#### SECURITY RULES ####
+dotnet_diagnostic.CA1112.severity = warning
+dotnet_diagnostic.CA2100.severity = warning   # CA2100: Review SQL queries for security vulnerabilities
+dotnet_diagnostic.CA2101.severity = warning
+dotnet_diagnostic.CA2108.severity = warning
+dotnet_diagnostic.CA2111.severity = warning
+dotnet_diagnostic.CA2114.severity = warning
+dotnet_diagnostic.CA2116.severity = warning
+dotnet_diagnostic.CA2117.severity = warning
+dotnet_diagnostic.CA2119.severity = warning   # CA2119: Seal methods that satisfy private interfaces
+dotnet_diagnostic.CA2122.severity = warning
+dotnet_diagnostic.CA2123.severity = warning
+dotnet_diagnostic.CA2124.severity = warning
+dotnet_diagnostic.CA2126.severity = warning
+dotnet_diagnostic.CA2131.severity = warning
+dotnet_diagnostic.CA2132.severity = warning
+dotnet_diagnostic.CA2133.severity = warning
+dotnet_diagnostic.CA2134.severity = warning
+dotnet_diagnostic.CA2137.severity = warning
+dotnet_diagnostic.CA2138.severity = warning
+dotnet_diagnostic.CA2140.severity = warning
+dotnet_diagnostic.CA2141.severity = warning
+dotnet_diagnostic.CA2146.severity = warning
+dotnet_diagnostic.CA2147.severity = warning
+dotnet_diagnostic.CA2149.severity = warning
+dotnet_diagnostic.CA2153.severity = warning   # CA2153: Do not catch corrupted state exceptions
+dotnet_diagnostic.CA2200.severity = warning
+dotnet_diagnostic.CA2202.severity = warning
+dotnet_diagnostic.CA2207.severity = warning   # CA2207: Initialize value type static fields inline
+dotnet_diagnostic.CA2212.severity = warning
+dotnet_diagnostic.CA2213.severity = warning   # CA2213: Disposable fields should be disposed
+dotnet_diagnostic.CA2214.severity = warning   # CA2214: Do not call overridable methods in constructors
+dotnet_diagnostic.CA2216.severity = warning   # CA2216: Disposable types should declare a finalizer
+dotnet_diagnostic.CA2217.severity = warning   # CA2217: Do not mark enums with FlagsAttribute if any values are not powers of two or a combination of others
+dotnet_diagnostic.CA2220.severity = warning   
+dotnet_diagnostic.CA2226.severity = warning   # CA2226: Operators should have symmetrical overloads e.g. implement both equality and inequalilty operators, or remove the one that's present.
+dotnet_diagnostic.CA2227.severity = none      # CA2227: Ignore collection properties should be read only. Interfers with API controller model binding.
+dotnet_diagnostic.CA2229.severity = warning   # CA2229: Implement serialization constructors
+dotnet_diagnostic.CA2231.severity = warning
+dotnet_diagnostic.CA2232.severity = warning
+dotnet_diagnostic.CA2235.severity = warning   # CA2235: Mark all non-serializable fields
+dotnet_diagnostic.CA2236.severity = warning
+dotnet_diagnostic.CA2237.severity = warning   # CA2237: Mark ISerializable types with serializable
+dotnet_diagnostic.CA2238.severity = warning
+dotnet_diagnostic.CA2240.severity = warning
+dotnet_diagnostic.CA2241.severity = warning
+dotnet_diagnostic.CA2300.severity = warning
+dotnet_diagnostic.CA2301.severity = error     # CA2301: Do not call BinaryFormatter.Deserialize without first setting BinaryFormatter.Binder
+dotnet_diagnostic.CA2302.severity = error     # CA2302: Ensure BinaryFormatter.Binder is set before calling BinaryFormatter.Deserialize
+dotnet_diagnostic.CA2305.severity = error     # CA2305: Do not use insecure deserializer LosFormatter
+dotnet_diagnostic.CA2310.severity = error     # CA2310: Do not use insecure deserializer NetDataContractSerializer
+dotnet_diagnostic.CA2311.severity = warning   # CA2311: Do not deserialize without first setting NetDataContractSerializer.Binder
+dotnet_diagnostic.CA2312.severity = warning   # CA2312: Ensure NetDataContractSerializer.Binder is set before deserializing
+dotnet_diagnostic.CA2315.severity = error     # CA2315: Do not use insecure deserializer ObjectStateFormatter
+dotnet_diagnostic.CA2321.severity = warning   # CA2321: Do not deserialize with JavaScriptSerializer using a SimpleTypeResolver
+dotnet_diagnostic.CA2322.severity = warning   # CA2322: Ensure JavaScriptSerializer is not initialized with SimpleTypeResolver before deserializing
+dotnet_diagnostic.CA2326.severity = warning   # CA2326: Do not use TypeNameHandling values other than None
+dotnet_diagnostic.CA2327.severity = error     # CA2327: Do not use insecure JsonSerializerSettings
+dotnet_diagnostic.CA2328.severity = warning   # CA2328: Ensure that JsonSerializerSettings are secure
+dotnet_diagnostic.CA2329.severity = error     # CA2329: Do not deserialize with JsonSerializer using an insecure configuration
+dotnet_diagnostic.CA2330.severity = warning   # CA2330: Ensure that JsonSerializer has a secure configuration when deserializing
+dotnet_diagnostic.CA2350.severity = warning   # CA2350: Ensure DataTable.ReadXml()'s input is trusted
+dotnet_diagnostic.CA2351.severity = warning   # CA2351: Ensure DataSet.ReadXml()'s input is trusted
+dotnet_diagnostic.CA2352.severity = warning   # CA2352: Unsafe DataSet or DataTable in serializable type can be vulnerable to remote code execution attacks
+dotnet_diagnostic.CA2353.severity = warning   # CA2353: Unsafe DataSet or DataTable in serializable type
+dotnet_diagnostic.CA2354.severity = warning   # CA2354: Unsafe DataSet or DataTable in deserialized object graph can be vulnerable to remote code execution attack
+dotnet_diagnostic.CA2355.severity = warning   # CA2355: Unsafe DataSet or DataTable in deserialized object graph
+dotnet_diagnostic.CA2356.severity = warning   # CA2356: Unsafe DataSet or DataTable type in web deserialized object graph
+dotnet_diagnostic.CA2361.severity = warning   # CA2361: Ensure autogenerated class containing DataSet.ReadXml() is not used with untrusted data
+dotnet_diagnostic.CA2362.severity = warning   # CA2362: Unsafe DataSet or DataTable in autogenerated serializable type can be vulnerable to remote code execution attacks
+dotnet_diagnostic.CA3001.severity = warning   # CA3001: Review code for SQL injection vulnerabilities
+dotnet_diagnostic.CA3002.severity = warning   # CA3002: Review code for XSS vulnerabilities
+dotnet_diagnostic.CA3003.severity = warning   # CA3003: Review code for file path injection vulnerabilities
+dotnet_diagnostic.CA3004.severity = warning   # CA3004: Review code for information disclosure vulnerabilities
+dotnet_diagnostic.CA3005.severity = warning   # CA3005: Review code for LDAP injection vulnerabilities
+dotnet_diagnostic.CA3006.severity = warning   # CA3006: Review code for process command injection vulnerabilities
+dotnet_diagnostic.CA3007.severity = warning   # CA3007: Review code for open redirect vulnerabilities
+dotnet_diagnostic.CA3008.severity = warning   # CA3008: Review code for XPath injection vulnerabilities
+dotnet_diagnostic.CA3009.severity = warning   # CA3009: Review code for XML injection vulnerabilities
+dotnet_diagnostic.CA3010.severity = warning   # CA3010: Review code for XAML injection vulnerabilities
+dotnet_diagnostic.CA3011.severity = warning   # CA3011: Review code for DLL injection vulnerabilities
+dotnet_diagnostic.CA3012.severity = warning   # CA3012: Review code for regex injection vulnerabilities
+dotnet_diagnostic.CA3075.severity = warning
+dotnet_diagnostic.CA3076.severity = warning
+dotnet_diagnostic.CA3077.severity = warning
+dotnet_diagnostic.CA5350.severity = warning
+dotnet_diagnostic.CA5351.severity = warning
+dotnet_diagnostic.CA5358.severity = warning   # CA5358: Do Not Use Unsafe Cipher Modes
+dotnet_diagnostic.CA5361.severity = warning   # CA5361: Do not disable SChannel use of strong crypto
+dotnet_diagnostic.CA5362.severity = warning   # CA5362: Potential reference cycle in deserialized object graph
+dotnet_diagnostic.CA5367.severity = warning   # CA5367: Do not serialize types with pointer fields
+dotnet_diagnostic.CA5375.severity = warning   # CA5375: Do not use account shared access signature
+dotnet_diagnostic.CA5376.severity = warning   # CA5376: Use SharedAccessProtocol HttpsOnly
+dotnet_diagnostic.CA5377.severity = warning   # CA5377: Use container level access policy
+dotnet_diagnostic.CA5378.severity = warning   # CA5378: Do not disable ServicePointManagerSecurityProtocols
+dotnet_diagnostic.CA5380.severity = warning   # CA5380: Do not add certificates to root store
+dotnet_diagnostic.CA5381.severity = warning   # CA5381: Ensure certificates are not added to root store
+dotnet_diagnostic.CA5382.severity = warning   # CA5382: Use secure cookies in ASP.NET Core
+dotnet_diagnostic.CA5383.severity = warning   # CA5383: Ensure use secure cookies in ASP.NET Core   
+dotnet_diagnostic.CA5386.severity = warning   # CA5386: Avoid hardcoding SecurityProtocolType value
+dotnet_diagnostic.CA5387.severity = warning   # CA5387: Do not use weak key derivation function with insufficient iteration count
+dotnet_diagnostic.CA5388.severity = warning   # CA5388: Ensure sufficient iteration count when using weak key derivation function
+dotnet_diagnostic.CA5389.severity = warning   # CA5389: Do not add archive item's path to the target file system path
+dotnet_diagnostic.CA5390.severity = warning   # CA5390: Do not hard-code encryption key
+dotnet_diagnostic.CA5391.severity = warning   # CA5391: Use antiforgery tokens in ASP.NET Core MVC controllers
+dotnet_diagnostic.CA5392.severity = warning   # CA5392: Use DefaultDllImportSearchPaths attribute for P/Invokes
+dotnet_diagnostic.CA5393.severity = warning   # CA5393: Do not use unsafe DllImportSearchPath value
+dotnet_diagnostic.CA5395.severity = warning   # CA5395: Miss HttpVerb attribute for action methods
+dotnet_diagnostic.CA5396.severity = warning   # CA5396: Set HttpOnly to true for HttpCookie
+dotnet_diagnostic.CA5398.severity = warning   # CA5398: Avoid hardcoded SslProtocols values
+dotnet_diagnostic.CA5399.severity = warning   # CA5399: Definitely disable HttpClient certificate revocation list check
+dotnet_diagnostic.CA5400.severity = warning   # CA5400: Ensure HttpClient certificate revocation list check is not disabled
+dotnet_diagnostic.CA5401.severity = warning   # CA5401: Do not use CreateEncryptor with non-default IV
+dotnet_diagnostic.CA5402.severity = warning   # CA5402: Use CreateEncryptor with the default IV
+dotnet_diagnostic.CA5403.severity = warning   # CA5403: Do not hard-code certificate
+
+#### USAGE RULES ####
+dotnet_diagnostic.CA2229.severity = warning # CA2229: Implement serialization constructors
+
+#### STYLE RULES ####
+dotnet_diagnostic.IDE0001.severity = none   # IDE0001: Name can be simplified (Justification: IDE0001 conflicts with SA1135 - relate to using directives being fully qualified - going with SA1135)
+dotnet_diagnostic.IDE0003.severity = error  # IDE0003: redundant 'this' prefix.
+dotnet_diagnostic.IDE0008.severity = none   # IDE0008: Use explicit type instead of 'var' (Justification: using IDE0007 instead (require var))
+dotnet_diagnostic.IDE0023.severity = none   # IDE0023: Use block body for conversion operators
+dotnet_diagnostic.IDE0024.severity = none   # IDE0024: Use block body for operators
+dotnet_diagnostic.IDE0058.severity = none   # IDE0058: Remove unnecessary expression value (Justification: does not add much value.)
+dotnet_diagnostic.IDE0079.severity = none   # IDE0079: Remove unnecessary suppression (Justification: Keeps coming up for IDE0060 suppressions)
+
+dotnet_diagnostic.SA1000.severity = none    # SA1000: The keyword new should be followed by a space (Justification: Conflicts with IDE0055 - Coding standard)
+dotnet_diagnostic.SA1101.severity = none    # SA1101: Prefix local calls with this (Justification: Do not use the 'this' prefix unless required due to a name clash - Coding standard)
+
+dotnet_diagnostic.SA1623.severity = none    # SA1623: Ignore documentation text within a C# property summary tag not matching property accessors. (Don't force "Get or sets" - ruins code generated swagger documentation.)
+dotnet_diagnostic.SA1413.severity = none    # SA1413: Ignore missing commas at the end of multi-line initialisers.
+dotnet_diagnostic.SA1629.severity = warning # SA1629: Ignore missing full stop at end of comments.
+dotnet_diagnostic.SA1137.severity = warning # SA1137: Warn elements must have the same indentation.
+dotnet_diagnostic.SA1135.severity = warning # SA1135: Warn fully qualified namespaces.
+
+dotnet_diagnostic.CLASS0001.severity = none # CLASS0001: Seal class - Do not force sealed on classes - use sealed when it makes sense (Justification: Use sealed when it makes sense not on any class that doesn't currently suggest inheritance - Coding standard)
+
+#### SonarAnalzer Rules ####
+dotnet_diagnostic.S1135.severity = suggestion # S1135: Complete the task associated to this 'TODO' comment (Justification: TODOs often are for things that can be fixed latter. By making them warnings, they break the build.)
+dotnet_diagnostic.S3458.severity = none      # S3458: Empty "case" clauses that fall through "default" should be omitted. (Justification: Code style preference to keep the empty cases that fall through to show they have been explicitly covered.)
+
+#### AsyncFixer Exclusions ####
+dotnet_diagnostic.ASYNC0004.severity = none  # ASYNC0004: Use ConfigureAwait(false) (Enabled in class library projects only)
+                                             # NOTE: Inclusion of this rule by project output kind is also supported by this rule's settings. We're not
+                                             # using this setting as we already have a separate global ruleset file for library projects that we inject.
+                                             # See: https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2007#output-kind
+
+###################################################
+# Disable all the documentation enforcement rules #
+###################################################
+
+dotnet_diagnostic.CS1591.severity = none    # CS1591: Missing XML comment for publicly visible type or member - disable exclusion if you require XML documentation
+dotnet_diagnostic.SA1600.severity = none    # SA1600: Elements should be documented - disable exclusion if you require XML documentation
+dotnet_diagnostic.SA1601.severity = none    # SA1601: Partial elements should be documented - disable exclusion if you require XML documentation
+dotnet_diagnostic.SA1602.severity = none    # SA1602: Enumeration items should be documented - disable exclusion if you require XML documentation
+dotnet_diagnostic.SA1633.severity = none    # SA1633: File should have header - disable exclusion if you require XML documentation
+dotnet_diagnostic.IDE0055.severity = none   # IDE0055: Fix formatting - disable exclusion if you are not using Resharper for formatting
+
+###################################################
+# Temp overrides of the Atturra.CodeAnalysis      #
+###################################################
+dotnet_diagnostic.AsyncFixer02.severity = none  # ReadToEndAsync should be used instead of new StreamReader(req.Body).ReadToEnd.
+
+dotnet_diagnostic.CA1304.severity = none        # The behavior of 'string.ToLower()' could vary based on the current user's locale settings. Replace this call in 'ExperianWcfServiceProvider.CreateFullAddress(QAAddressType)' with a call to 'string.ToLower(CultureInfo)'.
+dotnet_diagnostic.CA1309.severity = none        # Use ordinal string comparison
+dotnet_diagnostic.CA1310.severity = none        # The behavior of 'string.LastIndexOf(string)' could vary based on the current user's locale settings. Replace this call in 'NDSS.Azure.Common.Extensions.StringExtensions.StringBefore(string, string)' with a call to 'string.LastIndexOf(string, System.StringComparison)'.
+dotnet_diagnostic.CA1707.severity = none        # Remove the underscores from member name NDSS.Azure.D365.Common.Constants.CrmSmsActivityStatus.Open_Draft
+dotnet_diagnostic.CA1710.severity = none        # Rename NDSS.Azure.Common.Utils.BiDictionary<TFirst, TSecond> to end in 'Collection'
+dotnet_diagnostic.CA1711.severity = none        # Either replace the suffix 'New' in type name IMapToNew with the suggested numeric alternate '2' or provide a more meaningful suffix that distinguishes it from the type it replaces
+dotnet_diagnostic.CA1716.severity = none        # In virtual/interface member ISmsGlobalService.SendSmsAsync(string, string, string, string, string), rename parameter to so that it no longer conflicts with the reserved language keyword 'To'. Using a reserved keyword as the name of a parameter on a virtual/interface member makes it harder for consumers in other languages to override/implement the member.
+dotnet_diagnostic.CA1720.severity = none        # Identifier 'Decimal' contains type name
+dotnet_diagnostic.CA1725.severity = none        # In member Task<CosmosAttributeAuditDocument> AuditAttributeCosmosDbService.GetAuditArchive(Guid auditId), change parameter name auditId to crmId in order to match the identifier as it has been declared in Task<CosmosAttributeAuditDocument> IAuditAttributeCosmosDbService.GetAuditArchive(Guid crmId)
+dotnet_diagnostic.CA1727.severity = none        # Use PascalCase for named placeholders in the logging message template
+dotnet_diagnostic.CA1812.severity = none        # PortalCache is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static members, make it static (Shared in Visual Basic).
+dotnet_diagnostic.CA1813.severity = none        # Avoid unsealed attributes
+dotnet_diagnostic.CA1816.severity = none        # Change AsyncCloudTableEnumerator<T>.DisposeAsync() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.
+dotnet_diagnostic.CA1823.severity = none        # Unused field 'EntityNameMap'
+dotnet_diagnostic.CA1827.severity = none        # Count() is used where Any() could be used instead to improve performance
+dotnet_diagnostic.CA1829.severity = none        # Use the "Count" property instead of Enumerable.Count()
+dotnet_diagnostic.CA1848.severity = none        # For improved performance, use the LoggerMessage delegates instead of calling 'LoggerExtensions.LogWarning(ILogger, string, params object[])'
+dotnet_diagnostic.CA2000.severity = none        # Call System.IDisposable.Dispose on object created by 'new HMACSHA256(Encoding.ASCII.GetBytes(apiSecret))' before all references to it are out of scope
+dotnet_diagnostic.CA2201.severity = none        # Exception type System.Exception is not sufficiently specific
+dotnet_diagnostic.CA2208.severity = none        # Method Batch passes parameter name 'source' as the message argument to a ArgumentException constructor. Replace this argument with a descriptive message and pass the parameter name in the correct position.
+dotnet_diagnostic.CA2211.severity = none        # Non-constant fields should not be visible
+dotnet_diagnostic.CA2254.severity = none        # The logging message template should not vary between calls to 'LoggerExtensions.LogInformation(ILogger, string, params object[])'
+dotnet_diagnostic.CA2326.severity = none        # Deserializing JSON when using a TypeNameHandling value other than None can be insecure.
+dotnet_diagnostic.IDE0010.severity = none       # Populate switch
+dotnet_diagnostic.IDE0017.severity = none       # Object initialization can be simplified
+dotnet_diagnostic.IDE0018.severity = none       # Variable declaration can be inlined
+dotnet_diagnostic.IDE0019.severity = none       # Use pattern matching
+dotnet_diagnostic.IDE0022.severity = none       # Use block body for methods
+dotnet_diagnostic.IDE0025.severity = none       # Use expression body for properties
+dotnet_diagnostic.IDE0027.severity = none       # Use expression body for accessors
+dotnet_diagnostic.IDE0033.severity = none       # Prefer explicitly provided tuple element name
+dotnet_diagnostic.IDE0034.severity = none       # 'default' expression can be simplified
+dotnet_diagnostic.IDE0038.severity = none       # Use pattern matching
+dotnet_diagnostic.IDE0044.severity = none       # Make field readonly
+dotnet_diagnostic.IDE0045.severity = none       # 'if' statement can be simplified
+dotnet_diagnostic.IDE0046.severity = none       # 'if' statement can be simplified
+dotnet_diagnostic.IDE0047.severity = none       # Parentheses can be removed
+dotnet_diagnostic.IDE0051.severity = none       # Private member 'CrmAttributeMetadataConverter.ShouldSerialize' is unused
+dotnet_diagnostic.IDE0052.severity = none       # Private member 'CrmBaseEntity.EntityNameMap' can be removed as the value assigned to it is never read
+dotnet_diagnostic.IDE0059.severity = none       # Unnecessary assignment of a value to 'unused'
+dotnet_diagnostic.IDE0060.severity = none       # Remove unused parameter 'req' if it is not part of a shipped public API
+dotnet_diagnostic.IDE0063.severity = none       # 'using' statement can be simplified
+dotnet_diagnostic.IDE0066.severity = none       # Use 'switch' expression
+dotnet_diagnostic.IDE0071.severity = none       # Interpolation can be simplified
+dotnet_diagnostic.IDE0072.severity = none       # Populate switch
+dotnet_diagnostic.IDE0074.severity = none       # Use compound assignment
+dotnet_diagnostic.IDE0075.severity = none       # Conditional expression can be simplified
+dotnet_diagnostic.IDE0078.severity = none       # Use pattern matching
+dotnet_diagnostic.IDE0083.severity = none       # Use pattern matching
+dotnet_diagnostic.IDE0090.severity = none       # 'new' expression can be simplified
+dotnet_diagnostic.IDE0120.severity = none       # Simplify LINQ expression
+dotnet_diagnostic.IDE0130.severity = none       # Namespace "NDSS.Azure.Common.OData" does not match folder structure, expected "NDSS.Azure.Common.Responses"
+dotnet_diagnostic.IDE0150.severity = none       # Null check can be clarified
+dotnet_diagnostic.IDE0161.severity = none       # Convert to file-scoped namespace
+dotnet_diagnostic.IDE1006.severity = none       # Naming rule violation: These words must begin with upper case characters: id
+dotnet_diagnostic.S1066.severity = none         # Merge this if statement with the enclosing one.
+dotnet_diagnostic.S108.severity = none          # Either remove or fill this block of code.
+dotnet_diagnostic.S1104.severity = none         # Make this field 'private' and encapsulate it in a 'public' property.
+dotnet_diagnostic.S1116.severity = none         # Remove this empty statement.
+dotnet_diagnostic.S1117.severity = none         # Rename 'model' which hides the field with the same name.
+dotnet_diagnostic.S1118.severity = none         # Add a 'protected' constructor or the 'static' keyword to the class declaration.
+dotnet_diagnostic.S112.severity = none          # 'System.Exception' should not be thrown by user code.
+dotnet_diagnostic.S1121.severity = none         # Extract the assignment of 'haveD365' from this expression.
+dotnet_diagnostic.S1125.severity = none         # Remove the unnecessary Boolean literal(s).
+dotnet_diagnostic.S1144.severity = none         # Remove the unused private field 'EntityNameMap'.
+dotnet_diagnostic.S1155.severity = none         # Use '.Any()' to test whether this 'IEnumerable<XXX>' is empty or not.
+dotnet_diagnostic.S1172.severity = none         # Remove this unused method parameter 'request'.
+dotnet_diagnostic.S1186.severity = none         # Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
+dotnet_diagnostic.S1199.severity = none         # Extract this nested code block into a separate method.
+dotnet_diagnostic.S1210.severity = none         # When implementing IComparable<T>, you should also override ==, !=, <, <=, >, >=.
+dotnet_diagnostic.S1481.severity = none         # Remove the unused local variable 'unused'.
+dotnet_diagnostic.S1643.severity = none         # Use a StringBuilder instead.
+dotnet_diagnostic.S1854.severity = none         # Remove this useless assignment to local variable 'checkAt'.
+dotnet_diagnostic.S1939.severity = none         # 'IReadOnlyBiDictionary<TFirst, TSecond>' implements 'IEnumerable<KeyValuePair<TFirst, TSecond>>' so 'IEnumerable<KeyValuePair<TFirst, TSecond>>' can be removed from the inheritance list.
+dotnet_diagnostic.S1944.severity = none         # Nullable is known to be empty, this cast throws an exception.
+dotnet_diagnostic.S2219.severity = none         # Use the 'is' operator instead.
+dotnet_diagnostic.S2223.severity = none         # Change the visibility of 'CDE' or make it 'const' or 'readonly'.
+dotnet_diagnostic.S2259.severity = none         # 'preImageEntity' is null on at least one execution path.
+dotnet_diagnostic.S2326.severity = none         # 'TSource' is not used in the interface.
+dotnet_diagnostic.S2743.severity = none         # A static field in a generic type is not shared among instances of different close constructed types.
+dotnet_diagnostic.S2933.severity = none         # Make 'log' 'readonly'.
+dotnet_diagnostic.S2971.severity = none         # Use 'Count' property here instead.
+dotnet_diagnostic.S3011.severity = none         # Make sure that this accessibility bypass is safe here.
+dotnet_diagnostic.S3246.severity = none         # Add the 'in' keyword to parameter 'TSource' to make it 'contravariant'.
+dotnet_diagnostic.S3260.severity = none         # Private classes or records which are not derived in the current assembly should be marked as 'sealed'.
+dotnet_diagnostic.S3267.severity = none         # Loops should be simplified with "LINQ" expressions
+dotnet_diagnostic.S3358.severity = none         # Extract this nested ternary operation into an independent statement.
+dotnet_diagnostic.S3400.severity = none         # Remove this method and declare a constant for this value.
+dotnet_diagnostic.S3444.severity = none         # Rename or add member 'GetEnumerator()' to this interface to resolve ambiguities.
+dotnet_diagnostic.S3877.severity = none         # Remove this 'throw' statement.
+dotnet_diagnostic.S3881.severity = none         # Fix this implementation of 'IDisposable' to conform to the dispose pattern.
+dotnet_diagnostic.S3925.severity = none         # Update this implementation of 'ISerializable' to conform to the recommended serialization pattern.
+dotnet_diagnostic.S4035.severity = none         # Seal class 'NavIntegrationQueueItem' or implement 'IEqualityComparer<T>' instead.
+dotnet_diagnostic.S4426.severity = none         # Use a key length of at least 2048 bits for RSA cipher algorithm.
+dotnet_diagnostic.S4487.severity = none         # Remove this unread private field 'crmOptions' or refactor the code to use its value.
+dotnet_diagnostic.S6422.severity = none         # Replace this use of 'Task.Result' with 'await'. Do not perform blocking operations in Azure Functions.
+dotnet_diagnostic.S927.severity = none          # Rename parameter 'auditId' to 'crmId' to match the interface declaration.
+dotnet_diagnostic.SA1009.severity = none        # Closing parenthesis should be followed by a space.
+dotnet_diagnostic.SA1106.severity = none        # Code should not contain empty statements
+dotnet_diagnostic.SA1119.severity = none        # Statement should not use unnecessary parenthesis
+dotnet_diagnostic.SA1122.severity = none        # Use string.Empty for empty strings
+dotnet_diagnostic.SA1129.severity = none        # Do not use default value type constructor
+dotnet_diagnostic.SA1201.severity = none        # A conversion should not follow a method
+dotnet_diagnostic.SA1300.severity = none        # Element '_' should begin with an uppercase letter
+dotnet_diagnostic.SA1303.severity = none        # Const field names should begin with upper-case letter.
+dotnet_diagnostic.SA1306.severity = none        # Field 'ResponseContinuationTokenLimitInKb' should begin with lower-case letter
+dotnet_diagnostic.SA1310.severity = none        # Field 'ContactType_AccessPoint' should not contain an underscore
+dotnet_diagnostic.SA1311.severity = none        # Static readonly fields should begin with upper-case letter
+dotnet_diagnostic.SA1312.severity = none        # Variable 'IsSuccess' should begin with lower-case letter
+dotnet_diagnostic.SA1313.severity = none        # Parameter 'IsD365OptOut' should begin with lower-case letter
+dotnet_diagnostic.SA1401.severity = none        # Field should be private
+dotnet_diagnostic.SA1516.severity = none        # Elements should be separated by blank line
+dotnet_diagnostic.SA1649.severity = none        # File name should match first type name.
+
+## Temp overrides for VS 17.5 errors
+dotnet_diagnostic.IDE0270.severity = none       # Null check can be simplified
+
+# SA1010: Opening square brackets should be spaced correctly
+dotnet_diagnostic.SA1010.severity = silent
+
+# SA1011: Closing square brackets should be spaced correctly
+dotnet_diagnostic.SA1011.severity = silent
+
+[*.{appxmanifest,asax,ascx,aspx,axaml,axml,build,cs,cshtml,css,dbml,discomap,dtd,htm,html,jsproj,lsproj,master,njsproj,nuspec,paml,proj,props,razor,resw,resx,skin,StyleCop,targets,tasks,vb,vbproj,xaml,xamlx,xoml,xsd}]
+indent_style = space
+indent_size = 4
+tab_width = 4

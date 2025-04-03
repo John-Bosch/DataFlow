@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Analyzers -->
+    <PackageVersion Include="AsyncFixer" Version="1.6.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.13.2" />
+    <PackageVersion Include="FakeXrmEasy.9" Version="1.58.1" />
+    <PackageVersion Include="FakeXrmEasy.Core.v9" Version="3.6.0" />
+    <PackageVersion Include="FluentAssertions" Version="8.2.0" />
+    <PackageVersion Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.56" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.2.3" />
+      <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.3" />
+      <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
+    <PackageVersion Include="StyleCop.Analyzers" Version="1.1.118" />
+    <!-- Used Packages -->
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
+  </ItemGroup>
+</Project>

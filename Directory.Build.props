@@ -1,0 +1,56 @@
+<Project>
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <!--<Nullable>enable</Nullable>-->
+        <LangVersion>latest</LangVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
+        <NoWarn>$(NoWarn);1701;1702;1591</NoWarn>
+        <!-- Show the global analyzer config files in the project tree -->
+        <ShowAnalyzerConfigFiles>true</ShowAnalyzerConfigFiles>
+
+        <!-- Enable .NET Analyzers included with the framework.-->
+        <!-- https://docs.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props?view=aspnetcore-6.0#code-analysis-properties -->
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <!-- AnalysisMode: In .NET 5, this property only affects code-quality (CAXXXX) rules. Starting in .NET 6, if you set EnforceCodeStyleInBuild to true, this property affects code-style (IDEXXXX) rules too. -->
+        <!-- AnalysisMode: If you use a compound value for AnalysisLevel, for example, <AnalysisLevel>5-recommended</AnalysisLevel>, you can omit this property entirely. However, if you specify both properties, AnalysisLevel takes precedence over AnalysisMode. -->
+        <AnalysisMode>Default</AnalysisMode>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>TRACE;RUNTIME_NULL_CHECKS</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>RUNTIME_NULL_CHECKS</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsAsErrors />
+    </PropertyGroup>
+    <ItemGroup>
+        <!--User secrets-->
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets">
+            <TreatAsUsed>true</TreatAsUsed>
+        </PackageReference>
+        <!--Analyzers-->
+        <PackageReference Include="AsyncFixer">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="SonarAnalyzer.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="StyleCop.Analyzers">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\.editorconfig" Link="Properties\.editorconfig" />
+    </ItemGroup>
+</Project>
