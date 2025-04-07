@@ -12,9 +12,11 @@
     <PackageVersion Include="FluentAssertions" Version="8.2.0" />
     <PackageVersion Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.56" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.3" />
     <PackageVersion Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.2.3" />
-      <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.3" />
-      <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.3" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.1.118" />
     <!-- Used Packages -->
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
