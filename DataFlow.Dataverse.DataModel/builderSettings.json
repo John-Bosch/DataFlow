@@ -91,6 +91,7 @@
   "emitVirtualAttributes": true,
   "entityNamesFilter": [
     "aar_account",
+    "aar_concessiongroup",
     "aar_customerroles",
     "contact"
   ],

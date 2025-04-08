@@ -25,6 +25,10 @@ namespace DataFlow.Dataverse.DataModel
 		Gas = 745620001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("NA", 3)]
+		Na = 745620003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Water", 2)]
 		Water = 745620002,
 	}

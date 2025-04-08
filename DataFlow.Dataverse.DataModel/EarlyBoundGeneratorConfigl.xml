@@ -29,6 +29,7 @@
     <DeleteFilesFromOutputFolders>false</DeleteFilesFromOutputFolders>
     <EntitiesToSkip />
     <EntitiesWhitelist>aar_account|
+aar_concessiongroup|
 aar_customerroles|
 contact</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
@@ -120,7 +121,7 @@ VoiceMail</TokenCapitalizationOverrides>
   <Namespace>DataFlow.Dataverse.DataModel</Namespace>
   <ServiceContextName>DataverseContext</ServiceContextName>
   <SuppressGeneratedCodeAttribute>true</SuppressGeneratedCodeAttribute>
-  <SettingsVersion>2.2024.5.16</SettingsVersion>
+  <SettingsVersion>2.2024.11.8</SettingsVersion>
   <UpdateBuilderSettingsJson>true</UpdateBuilderSettingsJson>
   <Version>2.2024.11.8</Version>
 </Config>

@@ -67,6 +67,8 @@
         protected IEnumerable<TEntity> TransformAsync(SqlEntityReaderStart<TEntity> message)
         {
             dbContext.Database.SqlQuery<TEntity>(message.SqlQuery);
+
+            throw new NotImplementedException();
         }
     }
 }

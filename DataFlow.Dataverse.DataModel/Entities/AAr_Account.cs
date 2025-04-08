@@ -106,11 +106,6 @@ namespace DataFlow.Dataverse.DataModel
 			public const string AAr_AccountType = "aar_accounttype";
 			public const string AAr_AccountTypeName = "aar_accounttypename";
 			public const string AAr_AcDate = "aar_acdate";
-			public const string AAr_AddressLine1 = "aar_addressline1";
-			public const string AAr_AddressLine2 = "aar_addressline2";
-			public const string AAr_AddressLine3 = "aar_addressline3";
-			public const string AAr_AddressType = "aar_addresstype";
-			public const string AAr_AddressTypeName = "aar_addresstypename";
 			public const string AAr_AddressValidationMessage = "aar_addressvalidationmessage";
 			public const string AAr_AddressValidationTimestamp = "aar_addressvalidationtimestamp";
 			public const string AAr_BalanceOverdue = "aar_balanceoverdue";
@@ -153,7 +148,6 @@ namespace DataFlow.Dataverse.DataModel
 			public const string AAr_EntryDate = "aar_entrydate";
 			public const string AAr_FamilyViolence = "aar_familyviolence";
 			public const string AAr_FamilyViolenceName = "aar_familyviolencename";
-			public const string AAr_FreeformAt = "aar_freeformat";
 			public const string AAr_Install = "aar_install";
 			public const string AAr_InstallAddress = "aar_installaddress";
 			public const string AAr_InstallFullAddress = "aar_installfulladdress";
@@ -193,28 +187,6 @@ namespace DataFlow.Dataverse.DataModel
 			public const string AAr_PaymentExtensionInPlace = "aar_paymentextensioninplace";
 			public const string AAr_PaymentExtensionInPlaceName = "aar_paymentextensioninplacename";
 			public const string AAr_PaymentReference = "aar_paymentreference";
-			public const string AAr_PostalAddress = "aar_postaladdress";
-			public const string AAr_PostalAddressBuildingName = "aar_postaladdressbuildingname";
-			public const string AAr_PostalAddressFloorNumber = "aar_postaladdressfloornumber";
-			public const string AAr_PostalAddressFloorType = "aar_postaladdressfloortype";
-			public const string AAr_PostalAddressFloorTypeName = "aar_postaladdressfloortypename";
-			public const string AAr_PostalAddressHouseNumber = "aar_postaladdresshousenumber";
-			public const string AAr_PostalAddressManualEntry = "aar_postaladdressmanualentry";
-			public const string AAr_PostalAddressManualEntryName = "aar_postaladdressmanualentryname";
-			public const string AAr_PostalAddressPoBox = "aar_postaladdresspobox";
-			public const string AAr_PostalAddressPostcode = "aar_postaladdresspostcode";
-			public const string AAr_PostalAddressStartDate = "aar_postaladdressstartdate";
-			public const string AAr_PostalAddressState = "aar_postaladdressstate";
-			public const string AAr_PostalAddressStreetName = "aar_postaladdressstreetname";
-			public const string AAr_PostalAddressStreetType = "aar_postaladdressstreettype";
-			public const string AAr_PostalAddressStreetTypeName = "aar_postaladdressstreettypename";
-			public const string AAr_PostalAddressSuburb = "aar_postaladdresssuburb";
-			public const string AAr_PostalAddressUnitNumber = "aar_postaladdressunitnumber";
-			public const string AAr_PostalAddressUnitType = "aar_postaladdressunittype";
-			public const string AAr_PostalAddressUnitTypeName = "aar_postaladdressunittypename";
-			public const string AAr_PostalAddressVelocityId = "aar_postaladdressvelocityid";
-			public const string AAr_PostalCareOf = "aar_postalcareof";
-			public const string AAr_PostalName = "aar_postalname";
 			public const string AAr_PricingPlan = "aar_pricingplan";
 			public const string AAr_PrincipalCustomerId = "aar_principalcustomerid";
 			public const string AAr_PrincipalCustomerName = "aar_principalcustomername";
@@ -230,7 +202,6 @@ namespace DataFlow.Dataverse.DataModel
 			public const string AAr_UtilityServiceName = "aar_utilityservicename";
 			public const string AAr_VelocityBestOfferId = "aar_velocitybestofferid";
 			public const string AAr_VelocityConsumerId = "aar_velocityconsumerid";
-			public const string AAr_VelocityFullAddress = "aar_velocityfulladdress";
 			public const string AAr_VelocityLedgerId = "aar_velocityledgerid";
 			public const string CreatedBy = "createdby";
 			public const string CreatedByName = "createdbyname";
@@ -548,83 +519,6 @@ namespace DataFlow.Dataverse.DataModel
 			set
 			{
 				this.SetAttributeValue("aar_acdate", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_addressline1")]
-		public string AAr_AddressLine1
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_addressline1");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_addressline1", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_addressline2")]
-		public string AAr_AddressLine2
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_addressline2");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_addressline2", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_addressline3")]
-		public string AAr_AddressLine3
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_addressline3");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_addressline3", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_addresstype")]
-		public virtual AAr_AddressType? AAr_AddressType
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return ((AAr_AddressType?)(EntityOptionSetEnum.GetEnum(this, "aar_addresstype")));
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_addresstype", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_addresstypename")]
-		public string AAr_AddressTypeName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				if (this.FormattedValues.Contains("aar_addresstype"))
-				{
-					return this.FormattedValues["aar_addresstype"];
-				}
-				else
-				{
-					return default(string);
-				}
 			}
 		}
 		
@@ -1241,24 +1135,6 @@ namespace DataFlow.Dataverse.DataModel
 			}
 		}
 		
-		/// <summary>
-		/// This is used to capture things like 'Care of' or other values that don't neatly fit into available address fields.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_freeformat")]
-		public string AAr_FreeformAt
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_freeformat");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_freeformat", value);
-			}
-		}
-		
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_install")]
 		public Microsoft.Xrm.Sdk.EntityReference AAr_Install
 		{
@@ -1861,347 +1737,6 @@ namespace DataFlow.Dataverse.DataModel
 			}
 		}
 		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdress")]
-		public string AAr_PostalAddress
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdress");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdress", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressbuildingname")]
-		public string AAr_PostalAddressBuildingName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressbuildingname");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressbuildingname", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressfloornumber")]
-		public string AAr_PostalAddressFloorNumber
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressfloornumber");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressfloornumber", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressfloortype")]
-		public Microsoft.Xrm.Sdk.EntityReference AAr_PostalAddressFloorType
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("aar_postaladdressfloortype");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressfloortype", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressfloortypename")]
-		public string AAr_PostalAddressFloorTypeName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				if (this.FormattedValues.Contains("aar_postaladdressfloortype"))
-				{
-					return this.FormattedValues["aar_postaladdressfloortype"];
-				}
-				else
-				{
-					return default(string);
-				}
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdresshousenumber")]
-		public string AAr_PostalAddressHouseNumber
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdresshousenumber");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdresshousenumber", value);
-			}
-		}
-		
-		/// <summary>
-		/// Only use when address cannot be found.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressmanualentry")]
-		public System.Nullable<bool> AAr_PostalAddressManualEntry
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("aar_postaladdressmanualentry");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressmanualentry", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressmanualentryname")]
-		public string AAr_PostalAddressManualEntryName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				if (this.FormattedValues.Contains("aar_postaladdressmanualentry"))
-				{
-					return this.FormattedValues["aar_postaladdressmanualentry"];
-				}
-				else
-				{
-					return default(string);
-				}
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdresspobox")]
-		public string AAr_PostalAddressPoBox
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdresspobox");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdresspobox", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdresspostcode")]
-		public string AAr_PostalAddressPostcode
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdresspostcode");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdresspostcode", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressstartdate")]
-		public System.Nullable<System.DateTime> AAr_PostalAddressStartDate
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<System.DateTime>>("aar_postaladdressstartdate");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressstartdate", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressstate")]
-		public string AAr_PostalAddressState
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressstate");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressstate", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressstreetname")]
-		public string AAr_PostalAddressStreetName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressstreetname");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressstreetname", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressstreettype")]
-		public Microsoft.Xrm.Sdk.EntityReference AAr_PostalAddressStreetType
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("aar_postaladdressstreettype");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressstreettype", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressstreettypename")]
-		public string AAr_PostalAddressStreetTypeName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				if (this.FormattedValues.Contains("aar_postaladdressstreettype"))
-				{
-					return this.FormattedValues["aar_postaladdressstreettype"];
-				}
-				else
-				{
-					return default(string);
-				}
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdresssuburb")]
-		public string AAr_PostalAddressSuburb
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdresssuburb");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdresssuburb", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressunitnumber")]
-		public string AAr_PostalAddressUnitNumber
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressunitnumber");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressunitnumber", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressunittype")]
-		public Microsoft.Xrm.Sdk.EntityReference AAr_PostalAddressUnitType
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("aar_postaladdressunittype");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressunittype", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressunittypename")]
-		public string AAr_PostalAddressUnitTypeName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				if (this.FormattedValues.Contains("aar_postaladdressunittype"))
-				{
-					return this.FormattedValues["aar_postaladdressunittype"];
-				}
-				else
-				{
-					return default(string);
-				}
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postaladdressvelocityid")]
-		public string AAr_PostalAddressVelocityId
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postaladdressvelocityid");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postaladdressvelocityid", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postalcareof")]
-		public string AAr_PostalCareOf
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postalcareof");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postalcareof", value);
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_postalname")]
-		public string AAr_PostalName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_postalname");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_postalname", value);
-			}
-		}
-		
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_pricingplan")]
 		public string AAr_PricingPlan
 		{
@@ -2439,24 +1974,6 @@ namespace DataFlow.Dataverse.DataModel
 			set
 			{
 				this.SetAttributeValue("aar_velocityconsumerid", value);
-			}
-		}
-		
-		/// <summary>
-		/// Velocity Full Address
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("aar_velocityfulladdress")]
-		public string AAr_VelocityFullAddress
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("aar_velocityfulladdress");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.SetAttributeValue("aar_velocityfulladdress", value);
 			}
 		}
 		

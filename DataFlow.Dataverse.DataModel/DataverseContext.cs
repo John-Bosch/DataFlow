@@ -40,6 +40,17 @@ namespace DataFlow.Dataverse.DataModel
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="DataFlow.Dataverse.DataModel.AAr_ConcessionGroup"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<DataFlow.Dataverse.DataModel.AAr_ConcessionGroup> AAr_ConcessionGroupSet
+		{
+			get
+			{
+				return this.CreateQuery<DataFlow.Dataverse.DataModel.AAr_ConcessionGroup>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="DataFlow.Dataverse.DataModel.AAr_CustomerRoles"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<DataFlow.Dataverse.DataModel.AAr_CustomerRoles> AAr_CustomerRolesSet

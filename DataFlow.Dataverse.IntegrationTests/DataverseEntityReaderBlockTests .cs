@@ -144,8 +144,6 @@ public class DataverseEntityReaderBlockTests(ITestOutputHelper testOutputHelper)
                 var customerRoleVelocityId = result.Item1?.AAr_VelocityCRid;
                 var accountVelocityId = result.Item2?.AAr_VelocityLedgerId;
 
-//                Task.Delay(100).Wait();
-
                 Interlocked.Increment(ref processedCount);
             }, new ExecutionDataflowBlockOptions
             {
