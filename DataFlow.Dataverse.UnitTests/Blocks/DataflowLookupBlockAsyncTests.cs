@@ -87,7 +87,7 @@ namespace DataFlow.Dataverse.UnitTests.Blocks
 
             var results = new List<List<AAr_ConcessionGroup>>();
 
-            var testBlock = new DataflowLookupBlockAsync<OngoingConcession, AAr_ConcessionGroup>(
+            var testBlock = new LazyDataflowLookupBlockAsync<OngoingConcession, AAr_ConcessionGroup>(
                 organizationServiceMock.Object,
                 fetchXml,
                 (input, entity) => input.RebateCode == entity.AAr_ConcessionCode);

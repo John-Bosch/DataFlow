@@ -7,7 +7,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Threading.Tasks.Dataflow;
 
-public class DataflowLookupBlockAsync<TInput, TEntity> : IPropagatorBlock<TInput, (TInput, List<TEntity>)>, ITargetBlock<TInput>, ISourceBlock<(TInput, List<TEntity>)>
+public class LazyDataflowLookupBlockAsync<TInput, TEntity> : IPropagatorBlock<TInput, (TInput, List<TEntity>)>, ITargetBlock<TInput>, ISourceBlock<(TInput, List<TEntity>)>
     where TEntity : Entity
 {
     private readonly TransformBlock<TInput, (TInput, List<TEntity>)> transformBlock;
@@ -20,7 +20,7 @@ public class DataflowLookupBlockAsync<TInput, TEntity> : IPropagatorBlock<TInput
 
     private ISourceBlock<(TInput, List<TEntity>)> SourceBlock => transformBlock;
 
-    public DataflowLookupBlockAsync(IOrganizationServiceAsync2 organisationService, string fetchXml, Func<TInput, TEntity, bool> selector)
+    public LazyDataflowLookupBlockAsync(IOrganizationServiceAsync2 organisationService, string fetchXml, Func<TInput, TEntity, bool> selector)
     {
         this.selector = selector ?? throw new ArgumentNullException(nameof(selector));
         transformBlock = new TransformBlock<TInput, (TInput, List<TEntity>)>(TransformAsync);

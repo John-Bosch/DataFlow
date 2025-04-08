@@ -1,6 +1,7 @@
-﻿namespace DataFlow.Core.Caching;
+﻿namespace DataFlow.Dataverse.Caching;
 
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Primitives;
 
 internal class SafeMemoryCache : ISafeMemoryCache
 {
@@ -49,6 +50,11 @@ internal class SafeMemoryCache : ISafeMemoryCache
 
     public T? GetOrAdd<T>(string key, Func<ICacheEntry, T?> itemFactory)
     {
+        return GetOrAdd(key, itemFactory, null);
+    }
+
+    public T? GetOrAdd<T>(string key, Func<ICacheEntry, T?> itemFactory, MemoryCacheEntryOptions? policy)
+    {
         ArgumentException.ThrowIfNullOrWhiteSpace(key);
         ArgumentNullException.ThrowIfNull(itemFactory);
 
@@ -76,7 +82,7 @@ internal class SafeMemoryCache : ISafeMemoryCache
 
         try
         {
-            cacheItem = cache.GetOrCreate<object?>(key, CacheFactory);
+            cacheItem = GetOrCreate<object?>(key, CacheFactory, policy);
         }
         finally
         {
@@ -102,7 +108,12 @@ internal class SafeMemoryCache : ISafeMemoryCache
         cache.Remove(key);
     }
 
-    public async Task<T?> GetOrAddAsync<T>(string key, Func<ICacheEntry, Task<T?>> itemFactory)
+    public Task<T?> GetOrAddAsync<T>(string key, Func<ICacheEntry, Task<T?>> itemFactory)
+    {
+        return GetOrAddAsync<T>(key, itemFactory, null);
+    }
+
+    public async Task<T?> GetOrAddAsync<T>(string key, Func<ICacheEntry, Task<T?>> itemFactory, MemoryCacheEntryOptions? policy)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(key);
 
@@ -130,7 +141,7 @@ internal class SafeMemoryCache : ISafeMemoryCache
 
         try
         {
-            cacheItem = cache.GetOrCreate<object?>(key, CacheFactory);
+            cacheItem = GetOrCreate<object?>(key, CacheFactory, policy);
         }
         finally
         {
@@ -191,4 +202,47 @@ internal class SafeMemoryCache : ISafeMemoryCache
             _ => throw new InvalidOperationException("Found an unexpected object type in the cache")
         };
     }
+
+    private object? GetOrCreate<T>(string key, Func<ICacheEntry, T?> itemFactory, MemoryCacheEntryOptions? policy)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(key);
+
+        if (policy == null)
+        {
+            return cache.GetOrCreate(key, itemFactory);
+        }
+
+        if (!cache.TryGetValue(key, out var result))
+        {
+            var entry = cache.CreateEntry(key);
+
+            // Set the initial options before the factory is fired so that any callbacks
+            // that need to be wired up are still added.
+            entry.SetOptions(policy);
+
+            if (policy is SafeMemoryCacheEntryOptions safeOptions && safeOptions.ExpirationMode != ExpirationMode.LazyExpiration)
+            {
+                var tokenSource = new CancellationTokenSource();
+                var token = new CancellationChangeToken(tokenSource.Token);
+                entry.AddExpirationToken(token);
+
+                entry.RegisterPostEvictionCallback((key, value, reason, state) =>
+                {
+                    tokenSource.Dispose();
+                });
+
+                result = itemFactory(entry);
+                tokenSource.CancelAfter(safeOptions.ImmediateExpirationTimespan);
+            }
+            else
+            {
+                result = itemFactory(entry);
+            }
+
+            entry.SetValue(result);
+            entry.Dispose();
+        }
+
+        return (T?)result;
+    }    
 }
