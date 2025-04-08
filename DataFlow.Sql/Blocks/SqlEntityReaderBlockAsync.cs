@@ -8,15 +8,15 @@
     using DataFlow.Sql.Models;
     using Microsoft.EntityFrameworkCore;
 
-    public class SqlEntityReaderBlock<TEntity> : IPropagatorBlock<SqlEntityReaderStart<TEntity>, TEntity>
+    public class SqlEntityReaderBlockASync<TEntity> : IPropagatorBlock<SqlEntityReaderStart<TEntity>, TEntity>
         where TEntity : class
     {
         private readonly DbContext dbContext;
 
-        public SqlEntityReaderBlock(DbContext dbContext)
+        public SqlEntityReaderBlockASync(DbContext dbContext)
         {
             this.dbContext = dbContext;
-            transformBlock = new TransformManyBlock<SqlEntityReaderStart<TEntity>, TEntity>(Transform);
+            transformBlock = new TransformManyBlock<SqlEntityReaderStart<TEntity>, TEntity>(TransformAsync);
         }
 
         public Task Completion => transformBlock.Completion;
@@ -66,7 +66,7 @@
             return SourceBlock.ReserveMessage(messageHeader, target);
         }
 
-        protected IEnumerable<TEntity> Transform(SqlEntityReaderStart<TEntity> message)
+        protected async IAsyncEnumerable<TEntity> TransformAsync(SqlEntityReaderStart<TEntity> message)
         {
             var resultSet = dbContext.Database.SqlQuery<TEntity>(message.SqlQuery);
 
@@ -79,7 +79,7 @@
                 resultSet = resultSet.Where(lambda);
             }
 
-            foreach (var entity in resultSet)
+            await foreach (var entity in resultSet.AsAsyncEnumerable())
             {
                 yield return entity;
             }

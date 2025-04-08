@@ -7,7 +7,7 @@ public class SqlEntityReaderStart<TEntity>
 {
     public FormattableString SqlQuery { get; set; }
 
-    public Expression<Func<TEntity, long>> VersionStampColumnSelector { get; set; }
+    public Expression<Func<TEntity, long>>? VersionStampColumnSelector { get; set; }
 
-    public long LastVersionStamp { get; set; }
+    public long? LastVersionStamp { get; set; }
 }
